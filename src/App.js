@@ -1,25 +1,44 @@
-import logo from './logo.svg';
+// import "antd/dist/antd.css";
+import {Routes, Route} from 'react-router-dom';
+
+import Header from './components/header/hedaer'
+import SideMenu from './components/sidebar/Sidebar'
+import Footer from './components/footer/Footer'
+
 import './App.css';
+import Journalspage from './pages/journalspage/Journalspage';
+import Addjournal from './pages/addjournal/Addjournal';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{display: "flex", flexDirection: "column", flex: 1, height: "100vh"}}>
+      <Header />
+      <div style={{display: "flex", flexDirection: "row", flex: 1,}}>
+        <SideMenu /> 
+        <Content />
+      </div>
+     <Footer />
     </div>
   );
+}
+
+
+
+function Content() {
+  return(
+    <div>
+      <Routes>
+        <Route path="/" element={<div>Home</div>} />
+        <Route path="/journals" element={<Journalspage />} />
+        <Route path="/userslist" element={<div>Users List</div>} />
+        <Route path="/activeusers" element={<div>Active Users</div>} />
+        <Route path="/disabledusers" element={<div>Disables Users</div>} />
+        <Route path="/profile" element={<div>Profile</div>} />
+        <Route path="/addjournal" element={<Addjournal />} />
+
+      </Routes>
+    </div>
+  )
 }
 
 export default App;
