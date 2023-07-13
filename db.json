@@ -1,13 +1,6 @@
 {
   "journals": [
     {
-      "id": "1",
-      "img": "https://centralasianstudies.org/wp-content/uploads/2019/10/CAJOTAS-781x1024-1.png",
-      "name": "Central Asian Journal of Theoretical and Applied Sciences",
-      "title": "Инновации И Передовой Зарубежный Опыт В Преподавании Педагогики И Психологии",
-      "desc": "The journal welcomes articles from a wide range of research paper on the topic theoretical and applied subjects. All studies are published in English every two months."
-    },
-    {
       "id": "2",
       "img": "https://centralasianstudies.org/wp-content/uploads/2019/10/CAJMNS-.png",
       "name": "Central Asian Journal of Medical and Natural Science",
@@ -38,23 +31,29 @@
     {
       "id": "6",
       "img": "https://centralasianstudies.org/wp-content/uploads/2019/10/CAJSSH-.png",
-      "name": "Central Asian Journal Of Social Sciences And History",
-      "title": "Инновации И Передовой Зарубежный Опыт В Преподавании Педагогики И Психологии",
-      "desc": "The journal welcomes articles from a wide range of research paper on the topic theoretical and applied subjects. All studies are published in English every two months."
-    },
-    {
-      "name": "Axborot texnologiya",
-      "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUEuc-QifwIteccJXCqXQXeIQIG4wJrDQeQssBNw2BTVRiLXXFBizgqkfP8SXIkl08FK0&usqp=CAU",
-      "title": "Informatika va axborot texnologiyalari",
-      "desc": " Ushbu o`quv qo`llanma bakalavrning barcha yo`nalishlari talabari uchun mo`ljallangan bugungi kunning dolzarb texnologiyalari haqidagi fanlardan biri \"Informatika va axborot texnologiyalari\" fanining mazmunini ochib berishgan.",
-      "id": "3pXP5b5"
-    },
-    {
-      "name": "Axborot texnologiya",
-      "img": "https://i0.wp.com/library-tsul.uz/wp-content/uploads/2022/08/axborot-texnologiyalari-aripov-m-begalov-b-begimqulov-sh-2009_63076873a4086.jpeg?fit=758%2C1024&ssl=1",
-      "title": "Kompyuter axborot texnologiyalari",
-      "desc": "Axborot texnologiyalari. Aripov M., Begalov B., Begimqulov Sh. 2009.",
-      "id": "EPbeJLq"
+      "name": "+++Central Asian Journal Of Social Sciences And History",
+      "title": "+++Инновации И Передовой Зарубежный Опыт В Преподавании Педагогики И Психологии",
+      "desc": "+++The journal welcomes articles from a wide range of research paper on the topic theoretical and applied subjects. All studies are published in English every two months."
     }
+  ],
+  "blog": [
+    {
+      "id": "1",
+      "img": "https://inconference.uz/wp-content/uploads/2022/11/new_uzbekistan.jpg.webp",
+      "name": "Что такое Журналы-клоны?",
+      "desc": "Журналы-клоны (в англоязычной литературе принято называть hi­jacked journals) представляют собой мошеннические веб-сайты, которые копируют название, ISSN и другие данные настоящего журнала, тем самым обманывая потенциальных",
+      "date": "20.05.2023",
+      "keyword": "Maqola, jurnal",
+      "autor": "public.uz"
+    },
+    {
+      "id": "2",
+      "img": "https://inconference.uz/wp-content/uploads/2022/11/new_uzbekistan.jpg.webp",
+      "name": "Как работать с международным рейтингом Webometrics?",
+      "desc": "Четыре критерия оценки Webometrics Webometrics позволяет оценить престижность университетов мира и отследить их развитие. Рейтинг публикуется дважды в год уже 15 лет. Периодически количество вузов,",
+      "date": "15.06.2023",
+      "keyword": "konferensiya",
+      "autor": "public.uz"
+    },
   ]
 }

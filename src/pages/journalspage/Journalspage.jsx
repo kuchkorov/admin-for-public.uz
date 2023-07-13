@@ -1,26 +1,19 @@
 import { useEffect, useState } from "react";
-import {Link} from 'react-router-dom'
+import {Link, useParams, useNavigate} from 'react-router-dom';
+import axios from 'axios';
 import { BiEdit, BiSolidMessageSquareX } from "react-icons/bi";
 import { BsFillEyeFill } from "react-icons/bs";
 import './journalpage.css';
-import Modal from "../../components/modal/Modal";
-import Viewjournal from "../view/Viewjournal";
 
 function Journals() {
+  const {id} = useParams();
+  const navigate = useNavigate();
   const [showModal, setShowModal] = useState(false)
   const [journals, setJournals] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/journals")
-      .then((res) => {
-        if (!res.ok) {
-          throw new Error("Unable to fetch data");
-        } else return res.json();
-      })
-      .then((res) => {
-        // console.log(res);
-        return setJournals(res);
-      })
+    axios.get("http://localhost:5000/journals")
+      .then((res) => setJournals(res.data))
       .catch((err) => console.error(err));
   }, []);
 
@@ -36,6 +29,17 @@ function Journals() {
         return setShowModal(res);
       })
       .catch((err) => console.error(err));
+    }
+
+    const handleDelete =(id)=> {
+      const confirm = window.confirm("o'chirishni hohlaysizmi?")
+      if(confirm) {
+        axios.delete("http://localhost:5000/journals/" + id)
+        .then( res => {
+          window.location.reload();
+        }).catch(err => 
+          console.log(err))
+      }
     }
   
 
@@ -73,17 +77,18 @@ function Journals() {
                     <td>{value.title}</td>
                     <td>{value.desc}</td>
                     <td style={{ display: "flex" }}>
-                      <button
+                      <Link to={`/updatejournal/${value.id}`}><button
                         className="btn btn-primary m-2"
                         title="Tahrirlash"
                       >
                         <BiEdit />
                       </button>
+                      </Link>
                       <button className="btn btn-success m-2" title="Ko'rish" onClick={(e)=>ShowModal(value.id)} data-bs-toggle="modal" data-bs-target="#exampleModal">
                         <BsFillEyeFill />
                       </button>
                    
-                      <button className="btn btn-danger m-2" title="O'chirish">
+                      <button onClick={(e)=>handleDelete(value.id)} className="btn btn-danger m-2" title="O'chirish">
                         <BiSolidMessageSquareX />
                       </button>
                     </td>
@@ -134,24 +139,4 @@ function Journals() {
 
 export default Journals;
 
-{
-  /* <div className="row">
-            {journals.map((value)=> {
-              return(
-                <div className="col-md-4 my-2"  key={value.id}>
-                <div className="card">
-                  <div className="card-img">
-                    <img src={value.img} alt="" className="img-fluid" />
-                  </div>
-                  <div className="card-body">
-                    <h5 className="journal-name">
-                     {value.name}
-                    </h5>
-                  </div>
-                </div>
-              </div>
-              )
-            })}
-          
-        </div> */
-}
+

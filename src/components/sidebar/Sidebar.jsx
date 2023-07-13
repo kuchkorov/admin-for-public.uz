@@ -1,6 +1,7 @@
 import {useNavigate} from 'react-router-dom';
 import { Menu } from 'antd';
 import { BiSolidHome, BiSolidDashboard, BiListUl,BiUser, BiLogOut } from "react-icons/bi";
+import { IoMdSettings} from "react-icons/io";
 
 
 function SideMenu() {
@@ -19,12 +20,13 @@ function SideMenu() {
         items={[
           {label: "Home", key: "/", icon: <BiSolidHome />},
           {label: "Jurnallar", key: "/journals", icon: <BiSolidDashboard />},
-          {label: "Users List", key: "/userslist", icon: <BiListUl />,
+          {label: "Blog", key: "/userslist", icon: <BiListUl />,
           children: [
-            {label: "Active Users", key: "/activeusers"},
-            {label: "Disables Users", key: "/disabledusers"},
+            {label: "Blog yaratish", key: "/newblog"},
+            {label: "Barcha bloglar", key: "/allblogs"},
           ]},
           {label: "Profile", key: "/profile", icon: <BiUser />},
+          {label: "Sozlamalar", key: "/settings", icon: <IoMdSettings />},
           {label: "SignOut", key: "signout", icon: <BiLogOut />, danger: true}
         ]}>
         </Menu>
