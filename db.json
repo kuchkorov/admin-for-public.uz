@@ -36,24 +36,68 @@
       "desc": "+++The journal welcomes articles from a wide range of research paper on the topic theoretical and applied subjects. All studies are published in English every two months."
     }
   ],
+  "articles": [
+    {
+      "id": "1",
+      "name": "Ўзбекистон Республикасида судьялар ҳамжамияти органларининг ҳуқуқий мақомини белгилаш муаммолари",
+      "annotation": "Ушбу мақолада дастлабки тергов жараёнида тадбиркорлик субъектлари фаолияти текширувларини мувофиқлаштириш, хўжалик юритувчи субъектларнинг молия хўжалик фаолиятини текширишнинг бир неча турлари, тафтиш далилларни тўплаш усули ҳамда муҳим тергов ҳаракатларидан бири эканлиги муҳокама қилинган.",
+      "date": "20.05.2022",
+      "autor": "Тўлқинбой Жумано",
+      "pdf": "/pdf/1.pdf"
+    },
+    {
+      "id": "2",
+      "name": "Xalqaro shartnoma – huquqning muhim manbai sifatida",
+      "annotation": "Ушбу  мақолада  Буюк  Ипак  йўлининг  бир  қанча тармоқларга  бўлиниб  кетиши  ва  айнан  бу  тармоқлар орасида  жанубий  тармоқнинг  тутган  ўрни  масаласи,  бу тармоқ орқали ўтган шаҳарлар номлари, экспорт ва импорт товарлари ҳақида маълумотлар берилган",
+      "date": "20.05.2022",
+      "autor": "Тўлқинбой Жумано",
+      "pdf": "/pdf/2.pdf"
+    },
+    {
+      "id": "3",
+      "name": "Давлат харидларидаги тил бириктиришлар: коррупцион схемалар ва уларни фош этиш аломатлари",
+      "annotation": "Ushbu maqola O‘zbekistonda elchilik xizmati tarixi, uning muhim  bochqichlari  va  tartib-qoidalarini hamda o‘rta asrlarda Vatanimiz hududida mavjud bo‘lgan Xiva va Buxoro amirliginig 1806–1842-yillardagi  o‘zaro  diplomatik  munosabatga  doir manbalarga  tayangan  ma’lumuotlar  jamlangan. ",
+      "date": "20.05.2022",
+      "autor": "Тўлқинбой Жумано",
+      "pdf": "/pdf/3.pdf"
+    },
+    {
+      "id": "4",
+      "name": "Tarjima nazariyasi haqida qisqacha ma’lumot",
+      "annotation": "Мамлакатимиз  мустақилликка  эришганидан  сўнг аҳолининг  тезкор  ва  тежамкор  темир  йўл  транспортига бўлган  эҳтиёжининг  ортиши  натижасида  соҳада  қатор ислоҳотлар ўтказилишига  сабаб  бўлди.  Қолаверса,  совет ҳукуматининг   Ўзбекистонда   юритган   транспорт сиёсатидан қолган талайгина муаммолар ҳам ўз ечимини кутиб турган эди. Ушбу мақолада турли манбалар асосида 1991–2022  йиллар  давомида  Ўзбекистонда  темир  йўл транспорти барпо қилиниши ва ундаги кўплаб масалалар таҳлил қилинган.",
+      "date": "20.05.2022",
+      "autor": "Тўлқинбой Жумано",
+      "pdf": "/pdf/4.pdf"
+    },
+    {
+      "id": "5",
+      "name": "Ўзбекистон темир йўл транспорти кеча ва бугун: муаммо ва ечимлар",
+      "annotation": "Umumiy  o‘rta  ta’lim  muassasalarida     tashkil     etiladigan o‘quvchilarda refleksiv ko‘nikmalar shakllantirish va rivojlantirish jarayonlari tizimga xos xususiyatlarni keng darajada qamrab olgan murakkab pedagogik tizim hisoblanadi",
+      "date": "20.05.2022",
+      "autor": "Тўлқинбой Жумано",
+      "pdf": "/pdf/5.pdf"
+    }
+  ],
   "blog": [
     {
       "id": "1",
       "img": "https://inconference.uz/wp-content/uploads/2022/11/new_uzbekistan.jpg.webp",
+      "annotation": "",
       "name": "Что такое Журналы-клоны?",
       "desc": "Журналы-клоны (в англоязычной литературе принято называть hi­jacked journals) представляют собой мошеннические веб-сайты, которые копируют название, ISSN и другие данные настоящего журнала, тем самым обманывая потенциальных",
       "date": "20.05.2023",
-      "keyword": "Maqola, jurnal",
-      "autor": "public.uz"
+      "autor": "public.uz",
+      "pdf": "/pdf/1.pdf"
     },
     {
       "id": "2",
       "img": "https://inconference.uz/wp-content/uploads/2022/11/new_uzbekistan.jpg.webp",
-      "name": "Как работать с международным рейтингом Webometrics?",
-      "desc": "Четыре критерия оценки Webometrics Webometrics позволяет оценить престижность университетов мира и отследить их развитие. Рейтинг публикуется дважды в год уже 15 лет. Периодически количество вузов,",
-      "date": "15.06.2023",
-      "keyword": "konferensiya",
-      "autor": "public.uz"
-    },
+      "annotation": "",
+      "name": "Что такое Журналы-клоны?",
+      "desc": "Журналы-клоны (в англоязычной литературе принято называть hi­jacked journals) представляют собой мошеннические веб-сайты, которые копируют название, ISSN и другие данные настоящего журнала, тем самым обманывая потенциальных",
+      "date": "20.05.2023",
+      "autor": "public.uz",
+      "pdf": "/pdf/1.pdf"
+    }
   ]
 }

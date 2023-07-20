@@ -10,6 +10,8 @@ import Journalspage from './pages/journalspage/Journalspage';
 import Addjournal from './pages/addjournal/Addjournal';
 import Updatejournal from './pages/updatejournal/Updatejournal';
 import Allblog from './pages/allblog/Allblog';
+import Addarticle from './pages/addarticle/Addarticle';
+import Allarticles from './pages/allarticles/Allarticles';
 
 function App() {
   return (
@@ -35,6 +37,8 @@ function Content() {
         <Route path="/userslist" element={<div>Users List</div>} />
         <Route path="/newblog" element={<div>Active Users</div>} />
         <Route path="/allblogs" element={<Allblog />} />
+        <Route path="/addarticle" element={<Addarticle />} />
+        <Route path="/allarticles" element={<Allarticles />} />
         <Route path="/profile" element={<div>Profile</div>} />
         <Route path="/settings" element={<div>Profile</div>} />
         <Route path="/addjournal" element={<Addjournal />} />

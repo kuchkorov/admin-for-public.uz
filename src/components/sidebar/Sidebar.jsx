@@ -1,6 +1,6 @@
 import {useNavigate} from 'react-router-dom';
 import { Menu } from 'antd';
-import { BiSolidHome, BiSolidDashboard, BiListUl,BiUser, BiLogOut } from "react-icons/bi";
+import { BiSolidHome, BiSolidDashboard, BiListUl,BiUser, BiLogOut, BiSolidBook } from "react-icons/bi";
 import { IoMdSettings} from "react-icons/io";
 
 
@@ -25,6 +25,13 @@ function SideMenu() {
             {label: "Blog yaratish", key: "/newblog"},
             {label: "Barcha bloglar", key: "/allblogs"},
           ]},
+          
+          {label: "Maqolalar", key: "/articles", icon: <BiSolidBook />,
+          children: [
+            {label: "Maqola qo'shish", key: "/addarticle"},
+            {label: "Barcha maqolalar", key: "/allarticles"},
+          ]},
+
           {label: "Profile", key: "/profile", icon: <BiUser />},
           {label: "Sozlamalar", key: "/settings", icon: <IoMdSettings />},
           {label: "SignOut", key: "signout", icon: <BiLogOut />, danger: true}
