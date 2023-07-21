@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import "./viewjournal.css";
+import "./journal.css";
 
 function Viewjournal({ closeModal }) {
   const [journal, setJournals] = useState([]);

@@ -1,4 +1,5 @@
 import {useNavigate} from 'react-router-dom';
+import './sidebar.css'
 import { Menu } from 'antd';
 import { BiSolidHome, BiSolidDashboard, BiListUl,BiUser, BiLogOut, BiSolidBook } from "react-icons/bi";
 import { IoMdSettings} from "react-icons/io";
@@ -8,7 +9,7 @@ function SideMenu() {
     const navigate = useNavigate()
     return(
       <div  >
-         <Menu onClick={({key})=> {
+         <Menu style={{width: "250px", height: "100vh", fontSize: "18px", fontWeight: "500"}} onClick={({key})=> {
           if(key === "singout") {
   
           }else {
@@ -18,7 +19,7 @@ function SideMenu() {
         
         defaultSelectedKeys={[window.location.pathname]}
         items={[
-          {label: "Home", key: "/", icon: <BiSolidHome />},
+          {label: "Home", key: "/", icon: <BiSolidHome  />},
           {label: "Jurnallar", key: "/journals", icon: <BiSolidDashboard />},
           {label: "Blog", key: "/userslist", icon: <BiListUl />,
           children: [

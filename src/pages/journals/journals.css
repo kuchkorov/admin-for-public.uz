@@ -1,0 +1,39 @@
+
+/**********Addjournals********/
+
+.add-journal form {
+    /* width: 100px;
+    margin: auto; */
+    /* display: flex; */
+    margin: 20px;
+    padding: 20px;
+    border: 2px solid rgb(205, 204, 204);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.add-journal form input {
+    /* width: 100%; */
+    margin-right: 205px;
+}
+
+.add-journal form .form-label {
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+/********** journalsPage ********/
+
+.Journal-page .table {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin: auto;
+    width: 95%;
+}
+.Journal-page .btn-primary {
+    border-radius: 0;
+    margin-left: 2.5%;
+    margin-bottom: 10px;
+}
+
+/********** UpdateJournal ********/
+
+
+/********** ViewJournal ********/

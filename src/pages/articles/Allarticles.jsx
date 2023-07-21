@@ -3,22 +3,22 @@ import {Link, useParams, useNavigate} from 'react-router-dom';
 import axios from 'axios';
 import { BiEdit, BiSolidMessageSquareX } from "react-icons/bi";
 import { BsFillEyeFill } from "react-icons/bs";
-import './journalpage.css';
+import './articles.css';
 
-function Journals() {
+function Allarticles() {
   const {id} = useParams();
   const navigate = useNavigate();
   const [showModal, setShowModal] = useState(false)
-  const [journals, setJournals] = useState([]);
+  const [articles, setArticles] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/journals")
-      .then((res) => setJournals(res.data))
+    axios.get("http://localhost:5000/articles")
+      .then((res) => setArticles(res.data))
       .catch((err) => console.error(err));
   }, []);
 
   const ShowModal =(id)=> {
-    fetch(`http://localhost:5000/journals/${id}`)
+    fetch(`http://localhost:5000/articles/${id}`)
       .then((res) => {
         if (!res.ok) {
           throw new Error("Unable to fetch data");
@@ -34,7 +34,7 @@ function Journals() {
     const handleDelete =(id)=> {
       const confirm = window.confirm("o'chirishni hohlaysizmi?")
       if(confirm) {
-        axios.delete("http://localhost:5000/journals/" + id)
+        axios.delete("http://localhost:5000/articles/" + id)
         .then( res => {
           window.location.reload();
         }).catch(err => 
@@ -47,37 +47,32 @@ function Journals() {
     <section>
       <div className="Journal-page">
         <div className="">
-          <h1 className="title-our-jurnal text-center">Bizning jurnallar</h1>
-          <Link to="/addjournal"><button className="btn btn-primary">Jurnal qo'shish</button></Link>
+          <h1 className="title-our-jurnal text-center">Bizning Maqolalar</h1>
+          <Link to="/addarticle"><button className="btn btn-primary">Maqola qo'shish</button></Link>
           <table className="table table-bordered " border="1">
             <thead>
-              <tr>
+              <tr className="text-center">
                 <th scope="col">ID</th>
-                <th scope="col">FOTO</th>
-                <th scope="col">NOMI</th>
-                <th scope="col">SARLOVHA</th>
-                <th scope="col">TASNIFI</th>
+                <th scope="col">Nomi</th>
+                <th scope="col">Annotatsiya</th>
+                <th scope="col">Kun</th>
+                <th scope="col">Muallif</th>
+                <th scope="col">Pdf fayl</th>
                 <th scope="col">ACTION</th>
               </tr>
             </thead>
             <tbody>
-              {journals.map((value) => {
+              {articles.map((value) => {
                 return (
                   <tr key={value.id}>
                     <th scope="row">{value.id}</th>
-                    <td>
-                      <img
-                        src={value.img}
-                        className="img-fluid"
-                        alt={value.name}
-                        style={{width: "50px"}}
-                      />
-                    </td>
                     <td>{value.name}</td>
-                    <td>{value.title}</td>
-                    <td>{value.desc}</td>
+                    <td>{value.annotation}</td>
+                    <td>{value.date}</td>
+                    <td>{value.autor}</td>
+                    <td><iframe src={value.pdf} frameborder="0"></iframe></td>
                     <td style={{ display: "flex" }}>
-                      <Link to={`/updatejournal/${value.id}`}><button
+                      <Link to={`/updatearticle/${value.id}`}><button
                         className="btn btn-primary m-2"
                         title="Tahrirlash"
                       >
@@ -113,17 +108,12 @@ function Journals() {
             <div className="modal-body">
 
                <div className="row">
-                  <div className="col-sm-3">
-                    <img
-                      className="img-fluid"
-                      src={showModal.img}
-                      alt={showModal.name}
-                    />
-                  </div>
-                  <div className="col-sm-9">
-                   <h5> Nomi:</h5> <span> {showModal.name}</span> <br />
-                    <h5>Sarlovhasi:</h5> <span>{showModal.title}</span> <br />
-                    <h5>Tasmifi:</h5> <span>{showModal.desc}</span>
+                  <div className="col-lg-12">
+                   <h5> Nomi:</h5> <span> {showModal.name}</span> <br /><hr />
+                    <h5>Annotatsiya:</h5> <span>{showModal.annotation}</span> <br /><hr />
+                    <h5>Mazmuni:</h5> <span>{showModal.pdf}</span><hr />
+                    <h5>Kun:</h5> <span>{showModal.date}</span><hr />
+                    <h5>Muallif:</h5> <span>{showModal.autor}</span>
                   </div>
                 </div>
             </div>
@@ -137,6 +127,6 @@ function Journals() {
   );
 }
 
-export default Journals;
+export default Allarticles;
 
 

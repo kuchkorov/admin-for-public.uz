@@ -1,7 +1,7 @@
 import {useState} from "react";
 import {Link, useNavigate} from "react-router-dom"
 import axios from 'axios'
-import "./addjournal.css";
+import "./journals.css";
 
 function Addjournal() {
 
@@ -24,7 +24,7 @@ function Addjournal() {
         })
     }
   return (
-    <>
+    <div className="add-journal">
       <form className="w-100" onSubmit={handleSubmit}>
         <div className="mr-3">
           <label className="form-label">
@@ -58,7 +58,7 @@ function Addjournal() {
         </button>
         </Link>
       </form>
-    </>
+    </div>
   );
 }
 

@@ -1,5 +1,5 @@
 import {useState, useEffect} from 'react'
-import './updatejournal.css';
+import './journals.css';
 import {Link, useNavigate, useParams} from 'react-router-dom'
 import axios from 'axios'
 
