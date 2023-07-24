@@ -11,18 +11,20 @@ function Addjournal() {
         name: '',
         img: '',
         title: '',
-        desc: ''
+        describtion: ''
     })
 
-    const handleSubmit =(e)=> {
+    const handleSubmit = async (e)=> {
         e.preventDefault();
-        axios.post("http://localhost:5000/journals", input)
-        .then(res => {
-            console.log(res);
-            navigate("/journals");
-
-        })
+        try {
+          await axios.post("http://localhost:8800/journals", input)
+          navigate("/journals");
+          
+        } catch (error) {
+          console.log(error);  
+        }
     }
+    
   return (
     <div className="add-journal">
       <form className="w-100" onSubmit={handleSubmit}>
@@ -47,7 +49,7 @@ function Addjournal() {
         <div className="mr-3">
           <label className="form-label">
             <span>Jurnal mazmuni</span>
-            <input type="text" className="form-control" onChange={(e)=> setInput({...input, desc: e.target.value})} required />
+            <input type="text" className="form-control" onChange={(e)=> setInput({...input, describtion: e.target.value})} required />
           </label>
         </div>
         <button type="submit" className="btn btn-primary" style={{marginRight: "5px"}}>

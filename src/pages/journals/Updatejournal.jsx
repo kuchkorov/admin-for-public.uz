@@ -12,26 +12,34 @@ function Updatejournal() {
         name: '',
         img: '',
         title: '',
-        desc: ''
+        describtion: ''
     })
 
     useEffect(() => {
-        axios.get("http://localhost:5000/journals/" + id)
-          .then((res) => {
-            setInput(res.data)
-          })
-          .catch((err) => console.error(err));
+      const UpdateJOurnal = async()=> {
+        try {
+         const res = await axios.get(`"http://localhost:8800/journals/${id} `)
+         setInput(res.data[0])
+          console.log(res);
+        } catch (error) {
+          console.error(error)
+        }
+      }
+      UpdateJOurnal();
       }, []);
 
-      const handleUpdate =(e)=> {
-        e.preventDefault();
-        axios.put("http://localhost:5000/journals/" + id, input)
-        .then(res => {
-            console.log(res);
-            navigate("/journals");
 
-        })
+      const handleUpdate = async(e)=> {
+        e.preventDefault();
+        try {
+         await axios.put("http://localhost:8800/journals/" + id, input)
+         navigate("/journals");
+         console.log(input);
+        } catch (error) {
+          console.log(error);
+        }
       }
+
   return (
     <>
       <form className="w-100" onSubmit={handleUpdate}>
@@ -57,7 +65,7 @@ function Updatejournal() {
         <div className="mr-3">
           <label className="form-label">
             <span>Jurnal mazmuni</span>
-            <input type="text" className="form-control" value={input.desc} onChange={(e)=> setInput({...input, desc: e.target.value})}  required />
+            <input type="text" className="form-control" value={input.describtion} onChange={(e)=> setInput({...input, describtion: e.target.value})}  required />
           </label>
         </div>
         <button type="submit" className="btn btn-primary" style={{marginRight: "5px"}}>

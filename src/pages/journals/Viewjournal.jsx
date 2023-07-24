@@ -5,7 +5,7 @@ function Viewjournal({ closeModal }) {
   const [journal, setJournals] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/journals/:id`)
+    fetch(`http://localhost:8800/journals/:id`)
       .then((res) => {
         if (!res.ok) {
           throw new Error("Unable to fetch data");

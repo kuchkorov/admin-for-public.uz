@@ -3,6 +3,7 @@ import {Link, useParams, useNavigate} from 'react-router-dom';
 import axios from 'axios';
 import { BiEdit, BiSolidMessageSquareX } from "react-icons/bi";
 import { BsFillEyeFill } from "react-icons/bs";
+import { ToastContainer, toast } from 'react-toastify';
 import './journals.css';
 
 function Journals() {
@@ -11,14 +12,24 @@ function Journals() {
   const [showModal, setShowModal] = useState(false)
   const [journals, setJournals] = useState([]);
 
+
+//Get All info
   useEffect(() => {
-    axios.get("http://localhost:5000/journals")
-      .then((res) => setJournals(res.data))
-      .catch((err) => console.error(err));
+    const fetchAllJOurnals = async () => {
+      try {
+      const res = await axios.get("http://localhost:8800/journals")
+      setJournals(res.data)
+      } catch (error) {
+        console.error(error)
+      }
+    }
+    fetchAllJOurnals()
   }, []);
 
+
+// Get by ID
   const ShowModal =(id)=> {
-    fetch(`http://localhost:5000/journals/${id}`)
+    fetch(`http://localhost:8800/journals/${id}`)
       .then((res) => {
         if (!res.ok) {
           throw new Error("Unable to fetch data");
@@ -31,14 +42,17 @@ function Journals() {
       .catch((err) => console.error(err));
     }
 
-    const handleDelete =(id)=> {
+// Delete Info
+    const handleDelete = async (id)=> {
       const confirm = window.confirm("o'chirishni hohlaysizmi?")
-      if(confirm) {
-        axios.delete("http://localhost:5000/journals/" + id)
-        .then( res => {
-          window.location.reload();
-        }).catch(err => 
-          console.log(err))
+      try {
+        if(confirm) {
+        await axios.delete("http://localhost:8800/journals/" + id)
+        window.location.reload();
+        toast.success("Jurnal bazadan o'chirildi!")
+      }
+      } catch (error) {
+        console.log(error)
       }
     }
   
@@ -46,6 +60,7 @@ function Journals() {
   return (
     <section >
       <div className="Journal-page">
+      <ToastContainer />
         <div className="">
           <h1 className="title-our-jurnal text-center">Bizning jurnallar</h1>
           <Link to="/addjournal"><button className="btn btn-primary">Jurnal qo'shish</button></Link>
@@ -75,7 +90,7 @@ function Journals() {
                     </td>
                     <td>{value.name}</td>
                     <td>{value.title}</td>
-                    <td>{value.desc}</td>
+                    <td>{value.describtion}</td>
                     <td style={{ display: "flex" }}>
                       <Link to={`/updatejournal/${value.id}`}><button
                         className="btn btn-primary m-2"
@@ -123,7 +138,7 @@ function Journals() {
                   <div className="col-sm-9">
                    <h5> Nomi:</h5> <span> {showModal.name}</span> <br />
                     <h5>Sarlovhasi:</h5> <span>{showModal.title}</span> <br />
-                    <h5>Tasmifi:</h5> <span>{showModal.desc}</span>
+                    <h5>Tasmifi:</h5> <span>{showModal.describtion}</span>
                   </div>
                 </div>
             </div>
