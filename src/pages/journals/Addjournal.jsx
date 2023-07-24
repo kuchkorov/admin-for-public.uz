@@ -1,5 +1,5 @@
 import {useState} from "react";
-import {Link, useNavigate} from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import axios from 'axios'
 import "./journals.css";
 
@@ -14,8 +14,20 @@ function Addjournal() {
         describtion: ''
     })
 
+    const upload = async () => {
+      try {
+        const formData = new FormData();
+        formData.append("img", img)
+        const res = await axios.post("/upload", formData)
+        console.log(res.data);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
     const handleSubmit = async (e)=> {
         e.preventDefault();
+        upload()
         try {
           await axios.post("http://localhost:8800/journals", input)
           navigate("/journals");
@@ -37,7 +49,7 @@ function Addjournal() {
         <div className="mr-3">
           <label className="form-label">
             <span>Jurnal muqovasi</span>
-            <input type="url" className="form-control" onChange={(e)=> setInput({...input, img: e.target.value})} required />
+            <input type="file" className="form-control" onChange={(e)=> setInput({...input, img: e.target.files[0]})} required />
           </label>
         </div>
         <div className="mr-3">

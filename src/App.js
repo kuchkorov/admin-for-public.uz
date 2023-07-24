@@ -15,6 +15,7 @@ import Allarticles from './pages/articles/Allarticles';
 import UpdateArticle from './pages/articles/Updatearticle';
 import Profile from './pages/profile/Profile';
 import Setting from './pages/setting/Setting';
+import Viewjournal from './pages/journals/Viewjournal';
 
 function App() {
   return (
@@ -46,6 +47,7 @@ function Content() {
         <Route path="/profile" element={<Profile />} />
         <Route path="/settings" element={<Setting />} />
         <Route path="/addjournal" element={<Addjournal />} />
+        <Route path="/viewjournal" element={<Viewjournal />} />
         <Route path="/updatejournal/:id" element={<Updatejournal />} />
 
       </Routes>
