@@ -1,24 +1,166 @@
 
 /**********Addjournals********/
+/* 
+.add-journal {
+    margin-top: 20px;
+    display: flex;
+    gap: 20px;
+}
+.add-journal .content {
+    flex: 5;
+    display: flex;
+    gap: 20px;
+}
+.add-journal .menu {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.add-journal .menu .img-file {
+    text-decoration: none;
+    cursor: pointer;
+}
+.add-journal .menu .buttons {
+    display: flex;
+    justify-content: space-between;
+} 
+.add-journal .menu .buttons button {
+    cursor: pointer;
+    color: teal;
+    background-color: #fff;
+    padding: 3px 5px;
+}
+.add-journal .menu .item {
+    border: 1px solid lightgray;
+    padding: 10px;
+    flex: 1;
+    font-size: 12px;
+    color: #555;
+} 
+.add-journal .menu .item .cat {
+    align-items: center;
+    margin: 15px 0;
+    font-size: 16px;
+    color: teal;
+}
+.add-journal .menu .item .cat input  {
+    margin-right: 5px;
+}
+.add-journal .editorContainer {
+    height: 300px;
+    overflow: scroll;
+    border: 1px solid lightgray;
+}
+.add-journal .editorContainer .editor {
+    height: 100%;
+    border: none;
+} */
+
+.add-journal {
+    margin-top: 20px;
+    display: flex;
+    gap: 20px;
+    border: 1px solid rgb(211, 206, 206);
+    padding: 10px;
+    margin: 20px;
+}
+.add-journal .content {
+    flex: 5;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.add-journal input {
+    padding: 10px;
+    border: 1px solid lightgray;
+}
+
+.add-journal .editorContainer {
+    height: 300px;
+    overflow: scroll;
+    border: 1px solid lightgray;
+}
+.add-journal .editorContainer .editor {
+    height: 100%;
+    border: none;
+}
+      
+
+
+.add-journal .menu {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.add-journal .menu .item {
+    border: 1px solid lightgray;
+    padding: 10px;
+    flex:1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 12px;
+    color: #555;
+}
+.add-journal .menu .item h1{
+    font-size: 20px;
+}
+
+.add-journal .menu .item .file{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.add-journal .menu .item .buttons{
+    display: flex;
+    justify-content: space-between;
+}
+.add-journal .menu .item .buttons button:first-child{
+    cursor: pointer;
+    color: teal;
+    background-color: white;
+    border: 1px solid teal;
+    padding: 3px 5px;
+}
+.add-journal .menu .item .buttons button:last-child{
+    cursor: pointer;
+    color: white;
+    background-color: teal;
+    border: 1px solid teal;
+    padding: 3px 5px;
+}
+.add-journal .menu .item .cat{
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    color: teal;
+}
+    
 
 .add-journal form {
-    /* width: 100px;
-    margin: auto; */
-    /* display: flex; */
     margin: 20px;
     padding: 20px;
     border: 2px solid rgb(205, 204, 204);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .add-journal form input {
-    /* width: 100%; */
     margin-right: 205px;
 }
-
 .add-journal form .form-label {
     font-weight: 600;
     margin-bottom: 10px;
 }
+
+
+
+
+
+
+
+
 
 /********** journalsPage ********/
 

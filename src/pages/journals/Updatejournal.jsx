@@ -1,11 +1,10 @@
 import {useState, useEffect} from 'react'
-import './journals.css';
 import {Link, useNavigate, useParams} from 'react-router-dom'
 import axios from 'axios'
+import './journals.css';
 
 function Updatejournal() {
 
-    // const [data, setData] = useState([])
     const {id} = useParams();
     const navigate = useNavigate();
     const [input, setInput] = useState({
@@ -18,8 +17,8 @@ function Updatejournal() {
     useEffect(() => {
       const UpdateJOurnal = async()=> {
         try {
-         const res = await axios.get(`"http://localhost:8800/journals/${id} `)
-         setInput(res.data[0])
+         const res = await axios.get("http://localhost:8800/journals/" +id)
+         setInput(res.data)
           console.log(res);
         } catch (error) {
           console.error(error)
@@ -28,13 +27,11 @@ function Updatejournal() {
       UpdateJOurnal();
       }, []);
 
-
       const handleUpdate = async(e)=> {
         e.preventDefault();
         try {
          await axios.put("http://localhost:8800/journals/" + id, input)
          navigate("/journals");
-         console.log(input);
         } catch (error) {
           console.log(error);
         }

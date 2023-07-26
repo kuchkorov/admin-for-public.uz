@@ -43,11 +43,11 @@ function Content() {
         <Route path="/allblogs" element={<Allblog />} />
         <Route path="/addarticle" element={<Addarticle />} />
         <Route path="/allarticles" element={<Allarticles />} />
-        <Route path="//updatearticle" element={<UpdateArticle />} />
+        <Route path="/updatearticle" element={<UpdateArticle />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/settings" element={<Setting />} />
         <Route path="/addjournal" element={<Addjournal />} />
-        <Route path="/viewjournal" element={<Viewjournal />} />
+        <Route path="/viewjournal/:id" element={<Viewjournal />} />
         <Route path="/updatejournal/:id" element={<Updatejournal />} />
 
       </Routes>

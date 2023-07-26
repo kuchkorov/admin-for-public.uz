@@ -26,16 +26,6 @@ function Journals() {
   }, []);
 
 
-// Get by ID
-  const ShowModal = async (id)=> {
-    try {
-      const res = await axios.get(`http://localhost:8800/journals${id}`)
-      setJournals(res.data)
-      } catch (error) {
-        console.error(error)
-      }
-  }
-
 
 // Delete Info
     const handleDelete = async (id)=> {
@@ -51,7 +41,6 @@ function Journals() {
       }
     }
   
-
   return (
     <section >
       <div className="Journal-page">
@@ -109,11 +98,6 @@ function Journals() {
           </table>
         </div>
       </div>
-     
-
-
-
-      
     </section>
   );
 }

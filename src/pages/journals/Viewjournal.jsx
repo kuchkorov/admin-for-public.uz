@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios"
 import './journals.css'
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
 function Viewjournal() {
   const [journal, setJournals] = useState([]);
@@ -25,13 +25,11 @@ function Viewjournal() {
   return (
     <div className="view-journal">
       <div className="container">
-        {/* {journal.map((value) => {
-          return ( */}
             <div className="row">
               <div className="col-sm-3">
                 <img
                   className="img-fluid"
-                  src={journal.img}
+                  src={`../upload/${journal.img}`}
                   alt={journal.name}
                 />
               </div>
@@ -42,11 +40,10 @@ function Viewjournal() {
               </div>
             </div>
           );
-        {/* })} */}
 
-        <button className="btn btn-danger mt-4" >
+        <Link to="/journals" className="btn btn-danger mt-4" >
           Ortga
-        </button>
+        </Link>
       </div>
     </div>
   );
