@@ -56,6 +56,7 @@ function Journals() {
                 <th scope="col">NOMI</th>
                 <th scope="col">SARLOVHA</th>
                 <th scope="col">TASNIFI</th>
+                <th scope="col">FAYL</th>
                 <th scope="col">ACTION</th>
               </tr>
             </thead>
@@ -75,6 +76,9 @@ function Journals() {
                     <td>{value.name}</td>
                     <td>{value.title}</td>
                     <td>{value.describtion}</td>
+                    <td>
+                      <iframe src={value.file} frameborder="0"></iframe>
+                    </td>
                     <td style={{ display: "flex" }}>
                       <Link to={`/updatejournal/${value.id}`}><button
                         className="btn btn-primary m-2"

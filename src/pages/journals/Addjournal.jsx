@@ -9,30 +9,19 @@ import "./journals.css";
 function Addjournal() {
 
     const navigate = useNavigate();
-    const state = useLocation().state;
-    const [value, setValue] = useState(state?.title || "");
-    const [title, setTitle] = useState(state?.describtion || "");
-    const [file, setFile] = useState(null);
-    const [cat, setCat] = useState(state?.cat || "");
+    // const state = useLocation().state;
 
-    console.log(value);
+    const [name, setName] = useState("");
+    const [title, setTitle] = useState("");
+    const [describtion, setDescribtion] = useState("");
+    const [img, setImg] = useState("");
+
     // const [input, setInput] = useState({
     //     name: '',
     //     file: '',
     //     title: '',
     //     // describtion: ''
     // })
-
-    const upload = async () => {
-      try {
-        const formData = new FormData();
-        formData.append("file", file);
-        const res = await axios.post("http://localhost:8800/journals", formData);
-        return res.data;
-      } catch (err) {
-        console.log(err);
-      }
-    };
 
     // const handleSubmit = async (e)=> {
     //     e.preventDefault();
@@ -46,25 +35,32 @@ function Addjournal() {
     //     }
     // }
 
+    // const upload = async () => {
+    //   try {
+    //     const formData = new FormData();
+    //     formData.append("file", file);
+    //     const res = await axios.post("http://localhost:8800/journals", formData);
+    //     return res.data;
+    //   } catch (err) {
+    //     console.log(err);
+    //   }
+    // };
+
+
+    
     const handleClick = async (e) => {
       e.preventDefault();
-      const imgUrl = await upload();
+
+      const formData = new FormData();
+
+      formData.append('name', name)
+      formData.append('title', title)
+      formData.append('describtion', describtion)
+      formData.append('img', img)
   
       try {
-        state
-          ? await axios.put(`http://localhost:8800/journals/${state.id}`, {
-              title,
-              describtion: value,
-              cat,
-              img: file ? imgUrl : "",
-            })
-          : await axios.post(`http://localhost:8800/journals/`, {
-              title,
-              desc: value,
-              cat,
-              img: file ? imgUrl : "",
-              date: moment(Date.now()).format("YYYY-MM-DD HH:mm:ss"),
-            });
+        const res = await axios.post("http://localhost:8800/journals", formData);
+         
             navigate("/journals")
       } catch (err) {
         console.log(err);
@@ -76,20 +72,23 @@ function Addjournal() {
         <div className="content">
           <input
             type="text"
+            value={name}
             placeholder="Jurnal nomi"
-            onChange={(e) => setTitle(e.target.value)}
+            onChange={(e) => setName(e.target.value)}
           />
           <input
             type="text"
-            placeholder="Jurnal sarlovhasi"
+            value={title}
+            placeholder="Jurnal nomi"
             onChange={(e) => setTitle(e.target.value)}
           />
+          
           <div className="editorContainer">
             <ReactQuill
               className="editor"
               theme="snow"
-              value={value}
-              onChange={setValue}
+              value={describtion}
+              onChange={setDescribtion}
             />
           </div>
         </div>
@@ -106,8 +105,7 @@ function Addjournal() {
               // style={{ display: "none" }}
               type="file"
               id="file"
-              name=""
-              onChange={(e) => setFile(e.target.files[0])}
+              onChange={(e) => setImg(e.target.files[0])}
             />
             <label className="file" htmlFor="file">
               Upload Image
@@ -117,7 +115,7 @@ function Addjournal() {
               <button onClick={handleClick}>Publish</button>
             </div>
           </div>
-          <div className="item">
+          {/* <div className="item">
             <h1>Category</h1>
             <div className="cat">
               <input
@@ -185,7 +183,7 @@ function Addjournal() {
               />
               <label htmlFor="food">Pedagogika</label>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     );
