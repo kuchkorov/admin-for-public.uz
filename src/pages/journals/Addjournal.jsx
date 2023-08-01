@@ -9,64 +9,41 @@ import "./journals.css";
 function Addjournal() {
 
     const navigate = useNavigate();
-    // const state = useLocation().state;
 
     const [name, setName] = useState("");
     const [title, setTitle] = useState("");
-    const [describtion, setDescribtion] = useState("");
+    const [value, setValue] = useState("");
     const [img, setImg] = useState("");
 
-    // const [input, setInput] = useState({
-    //     name: '',
-    //     file: '',
-    //     title: '',
-    //     // describtion: ''
-    // })
-
-    // const handleSubmit = async (e)=> {
-    //     e.preventDefault();
-    //     upload()
-    //     try {
-    //       await axios.post("http://localhost:8800/journals", input)
-    //       navigate("/journals");
-          
-    //     } catch (error) {
-    //       console.log(error);  
-    //     }
-    // }
-
-    // const upload = async () => {
-    //   try {
-    //     const formData = new FormData();
-    //     formData.append("file", file);
-    //     const res = await axios.post("http://localhost:8800/journals", formData);
-    //     return res.data;
-    //   } catch (err) {
-    //     console.log(err);
-    //   }
-    // };
-
-
     
-    const handleClick = async (e) => {
-      e.preventDefault();
-
-      const formData = new FormData();
-
-      formData.append('name', name)
-      formData.append('title', title)
-      formData.append('describtion', describtion)
-      formData.append('img', img)
-  
+    const upload = async () => {
       try {
-        const res = await axios.post("http://localhost:8800/journals", formData);
-         
-            navigate("/journals")
+        const formData = new FormData();
+        formData.append("img", img);
+        const res = await axios.post("http://localhost:8800/upload", formData);
+        // console.log(res.data);
+        return res.data;
       } catch (err) {
         console.log(err);
       }
     };
-    
+
+    const handleClick = async (e)=> {
+        e.preventDefault();
+        const imgUrl = await upload()
+        try {
+         const res = await axios.post("http://localhost:8800/journals/", {
+            name, title, describtion: value, img: imgUrl
+          })
+          console.log(res.data);
+          // navigate("/journals");
+          
+        } catch (error) {
+          console.log(error);  
+        }
+    }
+
+       
     return (
       <div className="add-journal">
         <div className="content">
@@ -79,7 +56,7 @@ function Addjournal() {
           <input
             type="text"
             value={title}
-            placeholder="Jurnal nomi"
+            placeholder="Jurnal sarlovhasi"
             onChange={(e) => setTitle(e.target.value)}
           />
           
@@ -87,8 +64,8 @@ function Addjournal() {
             <ReactQuill
               className="editor"
               theme="snow"
-              value={describtion}
-              onChange={setDescribtion}
+              value={value} 
+              onChange={setValue}
             />
           </div>
         </div>
@@ -115,75 +92,7 @@ function Addjournal() {
               <button onClick={handleClick}>Publish</button>
             </div>
           </div>
-          {/* <div className="item">
-            <h1>Category</h1>
-            <div className="cat">
-              <input
-                type="radio"
-                checked={cat === "art"}
-                name="cat"
-                value="art"
-                id="art"
-                onChange={(e) => setCat(e.target.value)}
-              />
-              <label htmlFor="art">Huquqiy</label>
-            </div>
-            <div className="cat">
-              <input
-                type="radio"
-                checked={cat === "science"}
-                name="cat"
-                value="science"
-                id="science"
-                onChange={(e) => setCat(e.target.value)}
-              />
-              <label htmlFor="science">Iqtisodiy</label>
-            </div>
-            <div className="cat">
-              <input
-                type="radio"
-                checked={cat === "technology"}
-                name="cat"
-                value="technology"
-                id="technology"
-                onChange={(e) => setCat(e.target.value)}
-              />
-              <label htmlFor="technology">Technology</label>
-            </div>
-            <div className="cat">
-              <input
-                type="radio"
-                checked={cat === "cinema"}
-                name="cat"
-                value="cinema"
-                id="cinema"
-                onChange={(e) => setCat(e.target.value)}
-              />
-              <label htmlFor="cinema">Tarix</label>
-            </div>
-            <div className="cat">
-              <input
-                type="radio"
-                checked={cat === "design"}
-                name="cat"
-                value="design"
-                id="design"
-                onChange={(e) => setCat(e.target.value)}
-              />
-              <label htmlFor="design">Falsafa</label>
-            </div>
-            <div className="cat">
-              <input
-                type="radio"
-                checked={cat === "food"}
-                name="cat"
-                value="food"
-                id="food"
-                onChange={(e) => setCat(e.target.value)}
-              />
-              <label htmlFor="food">Pedagogika</label>
-            </div>
-          </div> */}
+          
         </div>
       </div>
     );

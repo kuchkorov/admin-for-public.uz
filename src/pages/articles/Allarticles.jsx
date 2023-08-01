@@ -12,13 +12,13 @@ function Allarticles() {
   const [articles, setArticles] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/articles")
+    axios.get("http://localhost:8800/articles")
       .then((res) => setArticles(res.data))
       .catch((err) => console.error(err));
   }, []);
 
   const ShowModal =(id)=> {
-    fetch(`http://localhost:5000/articles/${id}`)
+    fetch(`http://localhost:8800/articles/${id}`)
       .then((res) => {
         if (!res.ok) {
           throw new Error("Unable to fetch data");
@@ -54,7 +54,7 @@ function Allarticles() {
               <tr className="text-center">
                 <th scope="col">ID</th>
                 <th scope="col">Nomi</th>
-                <th scope="col">Annotatsiya</th>
+                {/* <th scope="col">Annotatsiya</th> */}
                 <th scope="col">Kun</th>
                 <th scope="col">Muallif</th>
                 <th scope="col">Pdf fayl</th>
@@ -67,7 +67,7 @@ function Allarticles() {
                   <tr key={value.id}>
                     <th scope="row">{value.id}</th>
                     <td>{value.name}</td>
-                    <td>{value.annotation}</td>
+                    {/* <td>{value.annotation}</td> */}
                     <td>{value.date}</td>
                     <td>{value.autor}</td>
                     <td><iframe src={value.pdf} frameborder="0"></iframe></td>
@@ -110,8 +110,8 @@ function Allarticles() {
                <div className="row">
                   <div className="col-lg-12">
                    <h5> Nomi:</h5> <span> {showModal.name}</span> <br /><hr />
-                    <h5>Annotatsiya:</h5> <span>{showModal.annotation}</span> <br /><hr />
-                    <h5>Mazmuni:</h5> <span>{showModal.pdf}</span><hr />
+                    {/* <h5>Annotatsiya:</h5> <span>{showModal.annotation}</span> <br /><hr /> */}
+                    <h5>File:</h5> <span>{showModal.pdf}</span><hr />
                     <h5>Kun:</h5> <span>{showModal.date}</span><hr />
                     <h5>Muallif:</h5> <span>{showModal.autor}</span>
                   </div>
